@@ -7,7 +7,7 @@
 
 import UIKit
 import FirebaseCore
-//import Firebase
+import Firebase
 import FirebaseFirestore
 import FirebaseAuth
 
@@ -22,34 +22,32 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func done(_ sender: Any) {
+    @IBAction func login(_ sender: Any) {
         guard let email = emailTF.text, !email.isEmpty,
               let password = passTF.text, !password.isEmpty else {
-            print("missing field data")
+            showAlert(title: "missing field data", message: "missing field data")
             return
         }
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) {[weak self] result, error in
             guard error == nil else{
-                self?.createAccountAlert(email: email, password: password)
+                self?.showAlert(title: "Error in Login", message: "Error in Login")
                 return
             }
-            print("Sign in ")
+            print("Login Successfully")
         }
     }
     
+    @IBAction func goToSingUpButton(_ sender: Any) {
+        let signUp = self.storyboard?.instantiateViewController(withIdentifier: "SignUpVC") as! SignUpVC
+        self.navigationController?.pushViewController(signUp, animated: true)
+    }
     
-    func createAccountAlert(email:String, password:String){
-        let alert = UIAlertController(title: "Create Account", message: "Create Account", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
-            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                guard error == nil else{
-                    print("account Creation Error")
-                    return
-                }
-            }
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+    
+    func showAlert(title:String,message:String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
         self.present(alert, animated: true)
         
-    }}
+    }
+}
 
