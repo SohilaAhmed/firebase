@@ -11,5 +11,6 @@ target 'firebase' do
   pod 'FirebaseFirestore'
   pod 'FirebaseCore'
   pod 'GoogleSignIn'
+ 
 
 end

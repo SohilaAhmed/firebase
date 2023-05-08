@@ -7,13 +7,23 @@
 
 import UIKit
 import FirebaseCore
-//import Firebase
+import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import GoogleSignIn
+//import GoogleSignIn
+//import GoogleSignInSwift
+//import GoogleUtilities
+//import GoogleDataTransport
 // ...
       
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{
+//, GIDSignInDelegate {
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+//        print("User Email: \(user.profile.email ?? "No Email")")
+//    }
+    
 
 
 
@@ -22,8 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Use Firebase library to configure APIs
         FirebaseApp.configure()
- 
+//        GIDSignIn.sharedInstance()?.clientID = "114549090278-ue0l1d0bn8vv42esco7nvkoktona5v8o.apps.googleusercontent.com"
+//        GIDSignIn.sharedInstance()?.delegate = self
+        
         return true
+    }
+    
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
+      return GIDSignIn.sharedInstance.handle(url)
     }
 
     // MARK: UISceneSession Lifecycle

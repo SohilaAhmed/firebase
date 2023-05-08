@@ -67,6 +67,14 @@
                                     <action selector="goToSingUpButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DgP-hv-pa6"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EcV-eN-bKU" customClass="GIDSignInButton">
+                                <rect key="frame" x="29" y="595" width="156" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <action selector="loginWithGoogle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="M0o-Oq-xqO"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -74,6 +82,7 @@
                     <navigationItem key="navigationItem" id="y41-8S-NzN"/>
                     <connections>
                         <outlet property="emailTF" destination="nDE-EN-o9L" id="NTa-hY-yGj"/>
+                        <outlet property="googleSignin" destination="EcV-eN-bKU" id="nOK-6p-WHu"/>
                         <outlet property="passTF" destination="eoq-hZ-sCY" id="DcV-1E-hdf"/>
                     </connections>
                 </viewController>
