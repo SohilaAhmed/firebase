@@ -13,6 +13,8 @@ import FirebaseAuth
 
 import GoogleSignIn
 
+import FacebookCore
+import FacebookLogin
 
 class LoginVC: UIViewController {
     
@@ -25,6 +27,13 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+//        let loginButton = FBSDKLoginButton()
+//        loginButton.delegate = self
+        
+//        let loginButton = FBLoginButton()
+//        loginButton.center = view.center
+//        view.addSubview(loginButton)
+        
 //        googleSignin.addTarget(self, action: #selector(googleLogin), for: .touchUpInside)
     }
     
@@ -78,6 +87,7 @@ class LoginVC: UIViewController {
             let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: user.accessToken.tokenString)
             Auth.auth().signIn(with: credential) { result, error in
                 // At this point, our user is signed in
+                Helper.pushViewController(withIdentifier: "HomepageVC", from: self)
             }
         }
     }

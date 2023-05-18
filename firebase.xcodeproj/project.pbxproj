@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		7B55863C2A099887000ECD70 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 7B55863B2A099887000ECD70 /* GoogleSignIn */; };
 		7B55863E2A099887000ECD70 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7B55863D2A099887000ECD70 /* GoogleSignInSwift */; };
+		7B5586412A0A05E7000ECD70 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5586402A0A05E7000ECD70 /* FacebookCore */; };
+		7B5586432A0A05E7000ECD70 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5586422A0A05E7000ECD70 /* FacebookLogin */; };
+		7B5586452A0A05E7000ECD70 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 7B5586442A0A05E7000ECD70 /* FacebookShare */; };
 		7B5FD2E129FF686300612438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FD2E029FF686300612438 /* AppDelegate.swift */; };
 		7B5FD2E329FF686300612438 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FD2E229FF686300612438 /* SceneDelegate.swift */; };
 		7B5FD2E529FF686300612438 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5FD2E429FF686300612438 /* LoginVC.swift */; };
@@ -40,6 +43,7 @@
 /* Begin PBXFileReference section */
 		0F4B52452248DE6627B68920 /* Pods-firebase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebase.release.xcconfig"; path = "Target Support Files/Pods-firebase/Pods-firebase.release.xcconfig"; sourceTree = "<group>"; };
 		79F26E42F3B6EC6E2A48B3A2 /* Pods_firebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_firebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B5586462A0A1D21000ECD70 /* firebase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = firebase.entitlements; sourceTree = "<group>"; };
 		7B5FD2DD29FF686300612438 /* firebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B5FD2E029FF686300612438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B5FD2E229FF686300612438 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,9 +64,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B5586432A0A05E7000ECD70 /* FacebookLogin in Frameworks */,
 				7B55863E2A099887000ECD70 /* GoogleSignInSwift in Frameworks */,
+				7B5586452A0A05E7000ECD70 /* FacebookShare in Frameworks */,
 				7B89F45B2A08BE3F00FE7C31 /* Pods_firebase.framework in Frameworks */,
 				7B55863C2A099887000ECD70 /* GoogleSignIn in Frameworks */,
+				7B5586412A0A05E7000ECD70 /* FacebookCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +106,7 @@
 		7B5FD2DF29FF686300612438 /* firebase */ = {
 			isa = PBXGroup;
 			children = (
+				7B5586462A0A1D21000ECD70 /* firebase.entitlements */,
 				7BD834072A076DA600985993 /* Helper.swift */,
 				7B5FD2E029FF686300612438 /* AppDelegate.swift */,
 				7B5FD2E229FF686300612438 /* SceneDelegate.swift */,
@@ -144,6 +152,9 @@
 			packageProductDependencies = (
 				7B55863B2A099887000ECD70 /* GoogleSignIn */,
 				7B55863D2A099887000ECD70 /* GoogleSignInSwift */,
+				7B5586402A0A05E7000ECD70 /* FacebookCore */,
+				7B5586422A0A05E7000ECD70 /* FacebookLogin */,
+				7B5586442A0A05E7000ECD70 /* FacebookShare */,
 			);
 			productName = firebase;
 			productReference = 7B5FD2DD29FF686300612438 /* firebase.app */;
@@ -175,6 +186,7 @@
 			mainGroup = 7B5FD2D429FF686200612438;
 			packageReferences = (
 				7B55863A2A099887000ECD70 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				7B55863F2A0A05E7000ECD70 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 7B5FD2DE29FF686300612438 /* Products */;
 			projectDirPath = "";
@@ -397,6 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = firebase/firebase.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 346Q44X4XP;
@@ -427,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = firebase/firebase.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 346Q44X4XP;
@@ -483,6 +497,14 @@
 				kind = branch;
 			};
 		};
+		7B55863F2A0A05E7000ECD70 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -495,6 +517,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7B55863A2A099887000ECD70 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
 			productName = GoogleSignInSwift;
+		};
+		7B5586402A0A05E7000ECD70 /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B55863F2A0A05E7000ECD70 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		7B5586422A0A05E7000ECD70 /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B55863F2A0A05E7000ECD70 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		7B5586442A0A05E7000ECD70 /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7B55863F2A0A05E7000ECD70 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
