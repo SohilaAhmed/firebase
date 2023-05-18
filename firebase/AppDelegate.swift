@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginButtonDelegate{
         return GIDSignIn.sharedInstance.handle(url)
     }
     
-    @objc(loginButton:didCompleteWithResult:error:) func loginButton(_ loginButton: FBLoginButton!, didCompleteWith result: LoginManagerLoginResult!, error: Error!) {
+    @objc(loginButton:didCompleteWithResult:error:) func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
         if let error = error {
             print(error.localizedDescription)
             return
